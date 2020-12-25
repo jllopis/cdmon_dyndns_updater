@@ -9,6 +9,7 @@ BLD="\\033[1m"
 BLU="\\033[34m"
 
 # Project options
+BINNAME="cdmon_dyndns_updater"
 BLDDIR = _build
 TOOLSDIR = tools
 BLDDATE=$(shell date -u +%Y%m%dT%H%M%S)
@@ -17,8 +18,6 @@ GIT_COMMIT ?= $(shell git rev-parse --short HEAD)
 LDFLAGS=" -s -X version.Name=$(BINNAME) -X version.BuildDate=$(BLDDATE) -X version.SemVer=$(VERSION) -X version.APIVersion=$(API_VERSION) -X version.GitCommit=$(GIT_COMMIT)"
 SRCS = $(wildcard *.go)
 OS=$(shell uname -s | tr "[:upper:]" "[:lower:]")
-
-BINNAME="cdmon_dyndns_updater"
 
 export PATH := $(TOOLSDIR):$(PATH)
 export GO111MODULE := on

@@ -2,14 +2,11 @@ package version
 
 import "fmt"
 
-const (
+var (
 	// Name of the service
-	Name = "CorpusMicroServer"
+	Name = "dasoft"
 	// APIVersion of the API this service provide
 	APIVersion = "v1"
-)
-
-var (
 	// Version is the current echo version in SemVer format
 	SemVer = "v0.0.1"
 	// BuildDate represents the date this service was built

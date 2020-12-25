@@ -1,11 +1,16 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
+	"os"
 	"sync"
+
+	"github.com/jllopis/cdmon_dyndns_updater/version"
 )
 
 var (
@@ -34,6 +39,13 @@ var (
 )
 
 func main() {
+	version := flag.Bool("version", false, "show version")
+	flag.Parse()
+
+	if *version {
+		showVersion()
+	}
+
 	var wg sync.WaitGroup
 
 	externalIP, err := getExternalIP()
@@ -65,4 +77,9 @@ func getExternalIP() (net.IP, error) {
 		return net.ParseIP(ipAddr), nil
 	}
 	return nil, nil
+}
+
+func showVersion() {
+	fmt.Printf("%s %s\n", os.Args[0], version.Get().String())
+	os.Exit(0)
 }
