@@ -2,7 +2,7 @@ package main
 
 /*
  * Setup command in CRON:
- * node cdmon_dyndns_updater.js
+ * node cdmon_dyndns_updater
  *
  * CDMON UPDATE PROTOCOL
  *
